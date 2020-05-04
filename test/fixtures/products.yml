@@ -1,0 +1,125 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  external_id: MyString
+  name: MyString
+  slug: MyString
+  permalink: MyString
+  date_created: 2020-05-04 16:27:35
+  date_modified: 2020-05-04 16:27:35
+  type: 1
+  status: 1
+  featured: false
+  catalog_visibility: MyString
+  description: MyString
+  short_description: MyString
+  sku: MyString
+  price: MyString
+  regular_price: MyString
+  sale_price: MyString
+  date_on_sale_from: 2020-05-04 16:27:35
+  date_on_sale_to: 2020-05-04 16:27:35
+  on_sale: false
+  purchasable: false
+  total_sales: 1
+  virtual: false
+  external_url: MyString
+  tax_status: MyString
+  tax_class: MyString
+  manage_stock: false
+  stock_quantity: MyString
+  stock_status: MyString
+  backorders: MyString
+  backorders_allowed: false
+  backordered: false
+  sold_individually: false
+  weight: MyString
+  color: MyString
+  dimensions: 
+  shipping_required: false
+  shipping_taxable: false
+  shipping_class: MyString
+  shipping_class_id: MyString
+  reviews_allowed: false
+  average_rating: MyString
+  rating_count: MyString
+  product_related_ids: 
+  upsell_ids: MyString
+  cross_sell_ids: MyString
+  parent_id: MyString
+  purchase_note: MyString
+  categories: 
+  brands: 
+  genders: 
+  disciplines: 
+  variations: 
+  tags: 
+  images: 
+  attributes: MyString
+  default_attributes: MyString
+  grouped_products: MyString
+  menu_order: MyString
+  menu_data: MyString
+  links: MyString
+
+two:
+  external_id: MyString
+  name: MyString
+  slug: MyString
+  permalink: MyString
+  date_created: 2020-05-04 16:27:35
+  date_modified: 2020-05-04 16:27:35
+  type: 1
+  status: 1
+  featured: false
+  catalog_visibility: MyString
+  description: MyString
+  short_description: MyString
+  sku: MyString
+  price: MyString
+  regular_price: MyString
+  sale_price: MyString
+  date_on_sale_from: 2020-05-04 16:27:35
+  date_on_sale_to: 2020-05-04 16:27:35
+  on_sale: false
+  purchasable: false
+  total_sales: 1
+  virtual: false
+  external_url: MyString
+  tax_status: MyString
+  tax_class: MyString
+  manage_stock: false
+  stock_quantity: MyString
+  stock_status: MyString
+  backorders: MyString
+  backorders_allowed: false
+  backordered: false
+  sold_individually: false
+  weight: MyString
+  color: MyString
+  dimensions: 
+  shipping_required: false
+  shipping_taxable: false
+  shipping_class: MyString
+  shipping_class_id: MyString
+  reviews_allowed: false
+  average_rating: MyString
+  rating_count: MyString
+  product_related_ids: 
+  upsell_ids: MyString
+  cross_sell_ids: MyString
+  parent_id: MyString
+  purchase_note: MyString
+  categories: 
+  brands: 
+  genders: 
+  disciplines: 
+  variations: 
+  tags: 
+  images: 
+  attributes: MyString
+  default_attributes: MyString
+  grouped_products: MyString
+  menu_order: MyString
+  menu_data: MyString
+  links: MyString

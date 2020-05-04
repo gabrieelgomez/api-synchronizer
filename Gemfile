@@ -11,6 +11,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 4.1'
 
+gem 'httparty', '~> 0.18.0'
 gem 'woocommerce_api', '~> 1.4'
 
 group :development, :test do
