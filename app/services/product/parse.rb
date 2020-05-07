@@ -1,15 +1,23 @@
 # frozen_string_literal: true
 
 # Product module of Product model
-module Product
-  # Parse class for loop each store
-  class Parse
-    def proccess(store)
-      store.products.each do |product|
-        next unless product.is_a?(Hash)
+# Parse class for loop each store
+class Product::Parse
+  def self.sync_rails_from_api
+    Store.all.each do |store|
+      # TODO: remove this break conditiona when exists store's endpoint
+      break unless store.sku == 'tiendas-plx'
 
-        Product::Setter.set(product)
-      end
+      # TODO: when exist api for each store, should be use HTTParty
+      # response = HTTParty.get(store.url)
+
+      # TODO: remove below two lines when exists api for each store
+      response = open('app/doc/cimo_api_example.json').read
+      response = JSON.parse(response)
+
+      break unless response['items'].size.positive?
+
+      response['items'].map { |product| Product::Setter.set(product, store) }
     end
   end
 end

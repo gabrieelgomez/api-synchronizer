@@ -2,17 +2,16 @@
 
 # Setter class for get a product instance
 class Product::Setter
-  def self.set(product)
-    new(product).perform
+  def self.set(product, store)
+    new(product, store).perform
   end
 
-  def initialize(product)
-    @getter = Product::Getter.new(product)
+  def initialize(product, store)
+    @getter = Product::Getter.new(product, store)
   end
 
   def perform
-    product
-    # return product if product.save
+    return product if product.save
   end
 
   private

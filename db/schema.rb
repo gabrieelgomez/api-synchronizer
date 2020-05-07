@@ -10,74 +10,120 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_04_202735) do
+ActiveRecord::Schema.define(version: 2020_05_06_210039) do
 
   # These are extensions that must be enabled in order to support this database
-  enable_extension 'plpgsql'
+  enable_extension "plpgsql"
 
-  create_table 'products', force: :cascade do |t|
-    t.string 'external_id'
-    t.string 'name'
-    t.string 'slug'
-    t.string 'permalink'
-    t.datetime 'date_created'
-    t.datetime 'date_modified'
-    t.integer 'type'
-    t.integer 'status'
-    t.boolean 'featured'
-    t.string 'catalog_visibility'
-    t.string 'description'
-    t.string 'short_description'
-    t.string 'sku'
-    t.string 'price'
-    t.string 'regular_price'
-    t.string 'sale_price'
-    t.datetime 'date_on_sale_from'
-    t.datetime 'date_on_sale_to'
-    t.boolean 'on_sale'
-    t.boolean 'purchasable'
-    t.integer 'total_sales'
-    t.boolean 'virtual'
-    t.string 'external_url'
-    t.string 'tax_status'
-    t.string 'tax_class'
-    t.boolean 'manage_stock'
-    t.string 'stock_quantity'
-    t.string 'stock_status'
-    t.string 'backorders'
-    t.boolean 'backorders_allowed'
-    t.boolean 'backordered'
-    t.boolean 'sold_individually'
-    t.string 'weight'
-    t.string 'color'
-    t.jsonb 'dimensions'
-    t.boolean 'shipping_required'
-    t.boolean 'shipping_taxable'
-    t.string 'shipping_class'
-    t.string 'shipping_class_id'
-    t.boolean 'reviews_allowed'
-    t.string 'average_rating'
-    t.string 'rating_count'
-    t.jsonb 'product_related_ids'
-    t.string 'upsell_ids'
-    t.string 'cross_sell_ids'
-    t.string 'parent_id'
-    t.string 'purchase_note'
-    t.jsonb 'categories'
-    t.jsonb 'brands'
-    t.jsonb 'genders'
-    t.jsonb 'disciplines'
-    t.jsonb 'variations'
-    t.jsonb 'tags'
-    t.jsonb 'images'
-    t.string 'metadata_attributes'
-    t.string 'metadata_default_attributes'
-    t.string 'grouped_products'
-    t.string 'menu_order'
-    t.string 'menu_data'
-    t.string 'links'
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
+  create_table "categorizations", force: :cascade do |t|
+    t.bigint "classification_id"
+    t.bigint "product_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["classification_id"], name: "index_categorizations_on_classification_id"
+    t.index ["product_id"], name: "index_categorizations_on_product_id"
+  end
+
+  create_table "classifications", force: :cascade do |t|
+    t.string "external_id"
+    t.string "name"
+    t.string "slug"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string "external_id", null: false
+    t.string "name"
+    t.string "slug"
+    t.string "permalink"
+    t.string "date_created"
+    t.string "date_modified"
+    t.integer "type_product"
+    t.string "status", default: "publish"
+    t.boolean "featured"
+    t.string "catalog_visibility"
+    t.string "description"
+    t.string "short_description"
+    t.string "sku"
+    t.string "price", default: "0"
+    t.string "regular_price", default: "0"
+    t.string "sale_price", default: "0"
+    t.string "date_on_sale_from"
+    t.string "date_on_sale_to"
+    t.boolean "on_sale"
+    t.boolean "purchasable"
+    t.integer "total_sales"
+    t.boolean "virtual"
+    t.string "external_url"
+    t.string "tax_status"
+    t.string "tax_class"
+    t.boolean "manage_stock"
+    t.integer "stock_quantity", default: 0
+    t.string "stock_status"
+    t.string "backorders"
+    t.boolean "backorders_allowed"
+    t.boolean "backordered"
+    t.boolean "sold_individually"
+    t.string "weight"
+    t.string "color"
+    t.jsonb "dimensions"
+    t.boolean "shipping_required"
+    t.boolean "shipping_taxable"
+    t.string "shipping_class"
+    t.string "shipping_class_id"
+    t.boolean "reviews_allowed"
+    t.string "average_rating"
+    t.string "rating_count"
+    t.jsonb "product_related_ids", default: {}
+    t.jsonb "upsell_ids", default: {}
+    t.jsonb "cross_sell_ids", default: {}
+    t.string "parent_id"
+    t.string "purchase_note"
+    t.jsonb "variations", default: {}
+    t.jsonb "tags", default: {}
+    t.jsonb "images", default: {}
+    t.jsonb "metadata_attributes", default: {}
+    t.jsonb "metadata_default_attributes", default: {}
+    t.jsonb "grouped_products", default: {}
+    t.string "menu_order"
+    t.jsonb "menu_data"
+    t.string "links"
+    t.bigint "store_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["store_id"], name: "index_products_on_store_id"
+  end
+
+  create_table "products_subcategories", force: :cascade do |t|
+    t.bigint "product_id"
+    t.bigint "subcategory_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["product_id"], name: "index_products_subcategories_on_product_id"
+    t.index ["subcategory_id"], name: "index_products_subcategories_on_subcategory_id"
+  end
+
+  create_table "stores", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "url", null: false
+    t.string "sku", null: false
+    t.text "secret_key", null: false
+    t.text "customer_key", null: false
+    t.jsonb "metadata", default: {}, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "subcategories", force: :cascade do |t|
+    t.string "external_id", null: false
+    t.integer "woocommerce_id"
+    t.string "name"
+    t.string "slug"
+    t.bigint "classification_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["classification_id"], name: "index_subcategories_on_classification_id"
   end
 
 end

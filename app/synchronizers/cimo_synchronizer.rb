@@ -2,20 +2,23 @@
 
 require 'open-uri'
 
-# CimoSynchronizer Service for syncronizers stores
+# CimoSynchronizer Service for syncronizers stores inventory
 class CimoSynchronizer
-  STAGING_URL = 'http://168.181.162.73/ords/pedidos_web2/vdatosiv'
+  # Class method for sync each model in rails to woocommerce
+  def self.sync
+    # Service to synchronize stores in rails from available API stores
+    StoreService.sync_from_api_to_rails
 
-  def self.synchronize
-    # TODO: refactoring when exist url for stores using Product::Parse
+    # once the products have been uploaded, from these records all categories
+    # and subcategories are created for each store
+    # Service to synchronize products in rails from API products
+    Product::Parse.sync_rails_from_api
 
-    response = open('app/doc/cimo_api_example.json').read
-    response = JSON.parse(response)
+    # Service to synchronize available categories from API through products
+    CategoriesStore.sync_from_rails_to_woocommerce
 
-    # response = HTTParty.get(STAGING_URL)
-
-    return unless response['items'].size.positive?
-
-    response['items'].map { |item| Product::Setter.set(item) }
+    # Service to synchronize products from rails for each store
+    # to woocommerce products
+    StoreService.sync_from_rails_to_woocommerce
   end
 end

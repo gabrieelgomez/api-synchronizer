@@ -1,14 +1,14 @@
 class CreateProducts < ActiveRecord::Migration[6.0]
   def change
     create_table :products do |t|
-      t.string :external_id
+      t.string :external_id, null: false, unique: true
       t.string :name
       t.string :slug
       t.string :permalink
-      t.datetime :date_created
-      t.datetime :date_modified
-      t.integer :type
-      t.integer :status
+      t.string :date_created
+      t.string :date_modified
+      t.integer :type_product
+      t.string :status, default: 'publish'
       t.boolean :featured
       t.string :catalog_visibility
       t.string :description
@@ -17,8 +17,8 @@ class CreateProducts < ActiveRecord::Migration[6.0]
       t.string :price
       t.string :regular_price
       t.string :sale_price
-      t.datetime :date_on_sale_from
-      t.datetime :date_on_sale_to
+      t.string :date_on_sale_from
+      t.string :date_on_sale_to
       t.boolean :on_sale
       t.boolean :purchasable
       t.integer :total_sales
@@ -27,7 +27,7 @@ class CreateProducts < ActiveRecord::Migration[6.0]
       t.string :tax_status
       t.string :tax_class
       t.boolean :manage_stock
-      t.string :stock_quantity
+      t.integer :stock_quantity, default: 0
       t.string :stock_status
       t.string :backorders
       t.boolean :backorders_allowed
@@ -43,24 +43,21 @@ class CreateProducts < ActiveRecord::Migration[6.0]
       t.boolean :reviews_allowed
       t.string :average_rating
       t.string :rating_count
-      t.jsonb :product_related_ids
-      t.string :upsell_ids
-      t.string :cross_sell_ids
+      t.jsonb :product_related_ids, default: {}
+      t.jsonb :upsell_ids, default: {}
+      t.jsonb :cross_sell_ids, default: {}
       t.string :parent_id
       t.string :purchase_note
-      t.jsonb :categories
-      t.jsonb :brands
-      t.jsonb :genders
-      t.jsonb :disciplines
-      t.jsonb :variations
-      t.jsonb :tags
-      t.jsonb :images
-      t.string :metadata_attributes
-      t.string :metadata_default_attributes
-      t.string :grouped_products
+      t.jsonb :variations, default: {}
+      t.jsonb :tags, default: {}
+      t.jsonb :images, default: {}
+      t.jsonb :metadata_attributes, default: {}
+      t.jsonb :metadata_default_attributes, default: {}
+      t.jsonb :grouped_products, default: {}
       t.string :menu_order
-      t.string :menu_data
+      t.jsonb :menu_data
       t.string :links
+      t.references :store
 
       t.timestamps
     end
