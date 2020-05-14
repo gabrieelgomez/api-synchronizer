@@ -2,12 +2,13 @@ class CreateProducts < ActiveRecord::Migration[6.0]
   def change
     create_table :products do |t|
       t.string :external_id, null: false, unique: true
+      t.integer :woocommerce_id
       t.string :name
       t.string :slug
       t.string :permalink
       t.string :date_created
       t.string :date_modified
-      t.integer :type_product
+      t.string :type_product
       t.string :status, default: 'publish'
       t.boolean :featured
       t.string :catalog_visibility

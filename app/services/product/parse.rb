@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# Product module of Product model
 # Parse class for loop each store
 class Product::Parse
   def self.sync_rails_from_api

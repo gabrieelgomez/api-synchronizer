@@ -12,7 +12,7 @@ class Subcategory < ApplicationRecord
         external_id: subcategory['id'],
         name: subcategory['name'],
         slug: subcategory['name'].downcase + '-' + subcategory['id'],
-        classification: Classification.finder(slug_name)
+        classification: Classification.find_by(slug: slug_name)
       )
       subcategory.save
       subcategory
@@ -20,7 +20,7 @@ class Subcategory < ApplicationRecord
   end
 
   # Find for create subcategory in woocommerce or update subcategory in rails
-  def create_or_update_by_woocommerce(subcategory_woocommerce, father_category)
+  def create_or_update_by_woocommerce(subcategory_woocommerce, subcategory, father_category, woocommerce)
     # if already exists subcategory in woocommerce
     if subcategory_woocommerce.any?
       sub_cat_woocommerce = subcategory_woocommerce.first

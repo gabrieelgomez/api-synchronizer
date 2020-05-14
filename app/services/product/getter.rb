@@ -15,11 +15,7 @@ class Product::Getter
     set_variations
 
     # TODO: complete this callbacks when api returns these values
-    # set_tags
     # set_images
-    # set_attributes
-    # set_default_attributes
-    # set_links
   end
 
   private
@@ -30,19 +26,19 @@ class Product::Getter
     @product.store      = @store
 
     # TODO: remove this assignement when from api return correct format values
-    @product.date_created      = @product.parse_date(@item['date_created'])
-    @product.date_modified     = @product.parse_date(@item['date_modified'])
-    @product.date_on_sale_from = @product.parse_date(@item['date_on_sale_from'])
-    @product.date_on_sale_to   = @product.parse_date(@item['date_on_sale_to'])
-    @product.price             = @item['price'].gsub(',', '.')
-    @product.regular_price     = @item['regular_price'].gsub(',', '.')
-    @product.sale_price        = @item['price'].gsub(',', '.')
+    @product.date_created      = parse_date(@item['date_created'])
+    @product.date_modified     = parse_date(@item['date_modified'])
+    @product.date_on_sale_from = parse_date(@item['date_on_sale_from'])
+    @product.date_on_sale_to   = parse_date(@item['date_on_sale_to'])
+    @product.price             = @item['price']
+    @product.regular_price     = @item['regular_price']
+    @product.sale_price        = @item['price']
     @product.sku               = @product.external_id
   end
 
   def set_classification
     result = []
-    %w[categories brands genders disciplines].map do |classification|
+    Classification::TYPES.map do |classification|
       # TODO: remove JSON.parse when from API return correct hash format
       subcategories = JSON.parse(@item[classification])
       result += Subcategory.build_in_batch(subcategories, classification)
@@ -52,7 +48,8 @@ class Product::Getter
 
   def set_variations
     # TODO: remove JSON.parse when from API return correct hash format
-    variations = JSON.parse(@item['variations'])
-    @product.variations = variations
+    # TODO: refactor variations when exists data from woocommerce
+    # variations = JSON.parse(@item['variations])
+    @product.variations = @item['variations']
   end
 end

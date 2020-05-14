@@ -4,16 +4,16 @@
 class Store < ApplicationRecord
   has_many :products
   validates :name, :url, :sku, :secret_key, :customer_key,
-            :metadata, uniqueness: true
+            :metadata, uniqueness: true, presence: true
 
   def self.initialize_for(store)
     find_or_initialize_by(
-      name: store['name'],
-      url: store['url'],
-      sku: store['sku'],
-      secret_key: store['secret_key'],
-      customer_key: store['customer_key'],
-      metadata: store['metadata']
+      name: store[:name],
+      url: store[:url],
+      sku: store[:sku],
+      secret_key: store[:secret_key],
+      customer_key: store[:customer_key],
+      metadata: store[:metadata]
     )
   end
 

@@ -11,10 +11,6 @@ class Classification < ApplicationRecord
   validates :slug, uniqueness: true
   validates :slug, inclusion: { in: TYPES }
 
-  def self.finder(name_slug)
-    find_by(slug: name_slug)
-  end
-
   def subcategories_by(data)
     subcategories.where(id: data)
   end
