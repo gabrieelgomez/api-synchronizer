@@ -3,7 +3,7 @@
 # Product model
 class Product < ApplicationRecord
   # For woocommerce_rest_product_invalid_id
-  EXCLUDE_KEYS = %i[id external_id type_product weight color dimensions
+  EXCLUDE_KEYS = %i[id type_product weight color dimensions
                     product_related_ids parent_id brands genders disciplines
                     variations tags images links store_id metadata_attributes
                     metadata_default_attributes menu_order menu_data
@@ -19,7 +19,7 @@ class Product < ApplicationRecord
   has_many :classifications, through: :categorizations
   has_and_belongs_to_many :subcategories
 
-  validates :external_id, uniqueness: true
+  validates :sku, uniqueness: true
   validates :status, inclusion: { in: STATUSES }
   validates :type_product, inclusion: { in: TYPES }
 
@@ -36,7 +36,7 @@ class Product < ApplicationRecord
   end
 
   def self.find_or_create_in_woocommerce(products_woo, product)
-    result = products_woo.select { |hash| hash['sku'] == product.external_id }
+    result = products_woo.select { |hash| hash['sku'] == product.sku }
     result.any? ? product : nil
   end
 

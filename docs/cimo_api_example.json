@@ -1,0 +1,162 @@
+{
+  "items": [
+    {
+      "id": "001177",
+      "name": "TRASE TX M SHOE",
+      "slug": "trase-tx-m-shoe",
+      "permalink": "https://example.com/products/trase-tx-m-shoe/",
+      "date_created": "2016/04/18",
+      "date_modified": "2016/04/18",
+      "type_product": "variable",
+      "status": "publish",
+      "catalog_visibility": "visible",
+      "description": "TRASE TX MSHOE",
+      "short_description": "TRASE TX MSHOE",
+      "purchasable": true,
+      "tax_status": "taxable",
+      "manage_stock": true,
+      "stock_quantity": 13,
+      "stock_status": "instock",
+      "backorders": "no",
+      "color": "BLACK/BLACK/BL",
+      "shipping_required": true,
+      "shipping_taxable": true,
+      "reviews_allowed": true,
+      "categories": [
+        {
+          "id": "010",
+          "name": "CALZADO",
+          "slug": "calzado"
+        }
+      ],
+      "brands": [
+        {
+          "id": 102,
+          "name": "DC SHOES",
+          "slug": "dc-shoes"
+        }
+      ],
+      "genders": [
+        {
+          "id": "001",
+          "name": "HOMBRE",
+          "slug": "hombre"
+        }
+      ],
+      "disciplines": [
+        {
+          "id": "010",
+          "name": "SKATEBOARDING",
+          "slug": "skateboarding"
+        }
+      ],
+      "variations": [
+        {
+          "name": "10.5",
+          "attribute": "Talla",
+          "sku": "001177-10.5",
+          "sale_price": "29900.00",
+          "regular_price": "29900.00",
+          "stock_quantity": 4
+        },
+        {
+          "name": "11",
+          "attribute": "Talla",
+          "sku": "001177-11",
+          "sale_price": "29900.00",
+          "regular_price": "29900.00",
+          "stock_quantity": 9
+        }
+      ],
+      "tags": "calzado,dc-shoes,hombre,skateboarding",
+      "sku": "001177"
+    },
+    {
+      "id": "000175",
+      "name": "DC STAR SS PE",
+      "slug": "dc-star-ss-pe",
+      "permalink": "https://example.com/products/dc-star-ss-pe/",
+      "date_created": "2016/04/18",
+      "date_modified": "2016/04/18",
+      "type_product": "variable",
+      "status": "publish",
+      "catalog_visibility": "visible",
+      "description": "DC STAR SS M TEES",
+      "short_description": "DC STAR SS M TEES",
+      "purchasable": true,
+      "tax_status": "taxable",
+      "manage_stock": true,
+      "stock_quantity": 50,
+      "stock_status": "instock",
+      "backorders": "no",
+      "color": "BLACK",
+      "shipping_required": true,
+      "shipping_taxable": true,
+      "reviews_allowed": true,
+      "categories": [
+        {
+          "id": "004",
+          "name": "ROPA",
+          "slug": "ropa"
+        }
+      ],
+      "brands": [
+        {
+          "id": 102,
+          "name": "DC SHOES",
+          "slug": "dc-shoes"
+        }
+      ],
+      "genders": [
+        {
+          "id": "001",
+          "name": "HOMBRE",
+          "slug": "hombre"
+        }
+      ],
+      "disciplines": [
+        {
+          "id": "010",
+          "name": "SKATEBOARDING",
+          "slug": "skateboarding"
+        }
+      ],
+      "variations": [
+        {
+          "name": "L",
+          "attribute": "Talla",
+          "sku": "000175-L",
+          "sale_price": "15,900.00",
+          "regular_price": "15,900.00",
+          "stock_quantity": 17
+        },
+        {
+          "name": "M",
+          "attribute": "Talla",
+          "sku": "000175-M",
+          "sale_price": "15,900.00",
+          "regular_price": "15,900.00",
+          "stock_quantity": 16
+        },
+        {
+          "name": "S",
+          "attribute": "Talla",
+          "sku": "000175-S",
+          "sale_price": "15,900.00",
+          "regular_price": "15,900.00",
+          "stock_quantity": 6
+        },
+        {
+          "name": "XL",
+          "attribute": "Talla",
+          "sku": "000175-XL",
+          "sale_price": "16,900.00",
+          "regular_price": "16,900.00",
+          "stock_quantity": 11
+        }
+      ],
+      "tags": "ropa,dc-shoes,hombre,skateboarding",
+      "sku": "000175"
+    }
+  ]
+}

@@ -2,7 +2,8 @@
   "data": [
     {
       "name": "Tienda PLX",
-      "url": "https://tiendasplx.com/index.php/",
+      "url_woocommerce": "https://tiendasplx.com/index.php/",
+      "url_external_api": "http://168.181.162.73/ords/pedidos_web2/datos/arts2",
       "sku": "tiendas-plx",
       "secret_key": "ck_37dede445c09b3a81919eea60ef5823bd97dd037",
       "customer_key": "cs_c0fe8637b2706e89c1eb187bbe07de663109d217",
@@ -13,10 +14,11 @@
     },
     {
       "name": "Tienda PLS",
-      "url": "https://tiendaspls.com/index.php/",
+      "url_woocommerce": "https://tiendaspls.com/index.php/",
+      "url_external_api": "",
       "sku": "tiendas-pls",
-      "secret_key": "ck_37dede445c09b3a81919eea60ef5823bd97dd037",
-      "customer_key": "cs_c0fe8637b2706e89c1eb187bbe07de663109d217",
+      "secret_key": "",
+      "customer_key": "",
       "metadata": {
         "wp_api": true,
         "version": "wc/v3"
@@ -24,10 +26,11 @@
     },
     {
       "name": "Shoelab",
-      "url": "https://shoelab.com/index.php/",
+      "url_woocommerce": "https://shoelab.com/index.php/",
+      "url_external_api": "",      
       "sku": "shoelab",
-      "secret_key": "ck_37dede445c09b3a81919eea60ef5823bd97dd037",
-      "customer_key": "cs_c0fe8637b2706e89c1eb187bbe07de663109d217",
+      "secret_key": "",
+      "customer_key": "",
       "metadata": {
         "wp_api": true,
         "version": "wc/v3"
@@ -35,10 +38,11 @@
     },
     {
       "name": "GoSports",
-      "url": "https://gosports.com/index.php/",
+      "url_woocommerce": "https://gosports.com/index.php/",
+      "url_external_api": "",
       "sku": "gosports",
-      "secret_key": "ck_37dede445c09b3a81919eea60ef5823bd97dd037",
-      "customer_key": "cs_c0fe8637b2706e89c1eb187bbe07de663109d217",
+      "secret_key": "",
+      "customer_key": "",
       "metadata": {
         "wp_api": true,
         "version": "wc/v3"

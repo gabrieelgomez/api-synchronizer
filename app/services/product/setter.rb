@@ -2,21 +2,14 @@
 
 # Setter class for get a product instance
 class Product::Setter
+  # Loop for each products from one store api
+  def self.sync_products_from_api(items, store)
+    items.each { |product| set(product, store) }
+  end
+
+  # Set one product for get all properties
   def self.set(product, store)
-    new(product, store).perform
-  end
-
-  def initialize(product, store)
-    @getter = Product::Getter.new(product, store)
-  end
-
-  def perform
+    product = Product::Getter.new(product, store).product
     return product if product.save
-  end
-
-  private
-
-  def product
-    @product ||= @getter.product
   end
 end

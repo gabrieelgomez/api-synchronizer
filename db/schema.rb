@@ -33,20 +33,19 @@ ActiveRecord::Schema.define(version: 2020_05_06_210039) do
   end
 
   create_table "products", force: :cascade do |t|
-    t.string "external_id", null: false
+    t.string "sku", null: false
     t.integer "woocommerce_id"
     t.string "name"
     t.string "slug"
     t.string "permalink"
     t.string "date_created"
     t.string "date_modified"
-    t.string "type_product"
+    t.string "type_product", default: "simple"
     t.string "status", default: "publish"
     t.boolean "featured"
     t.string "catalog_visibility"
     t.string "description"
     t.string "short_description"
-    t.string "sku"
     t.string "price"
     t.string "regular_price"
     t.string "sale_price"
@@ -107,7 +106,8 @@ ActiveRecord::Schema.define(version: 2020_05_06_210039) do
 
   create_table "stores", force: :cascade do |t|
     t.string "name", null: false
-    t.string "url", null: false
+    t.string "url_woocommerce", null: false
+    t.string "url_external_api", null: false
     t.string "sku", null: false
     t.text "secret_key", null: false
     t.text "customer_key", null: false
@@ -117,14 +117,14 @@ ActiveRecord::Schema.define(version: 2020_05_06_210039) do
   end
 
   create_table "subcategories", force: :cascade do |t|
-    t.string "external_id", null: false
     t.integer "woocommerce_id"
     t.string "name"
     t.string "slug"
     t.bigint "classification_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", precision: 6, default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.datetime "updated_at", precision: 6, default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.index ["classification_id"], name: "index_subcategories_on_classification_id"
+    t.index ["slug"], name: "index_subcategories_on_slug", unique: true
   end
 
 end
