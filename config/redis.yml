@@ -1,0 +1,16 @@
+test:
+  url: 'redis://127.0.0.1:6379/0'
+  namespace: sidekiq
+
+development:
+  url: 'redis://127.0.0.1:6379/0'
+  namespace: sidekiq
+
+staging:
+  url: 'redis://127.0.0.1:6379/0'
+  namespace: sidekiq
+
+production:
+  url: 'redis://127.0.0.1:6379/0'
+  namespace: sidekiq
+  password: redis_password

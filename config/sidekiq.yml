@@ -1,0 +1,11 @@
+:concurrency: 25
+:pidfile: ./tmp/pids/sidekiq.pid
+:logfile: ./log/sidekiq.log
+:queues:
+  - [high_priority, 2]
+  - [mailers, 1]
+  - [default]
+:schedule:
+  api_synchronizer:
+    cron: '0 0 1 * *'
+    class: ApiSynchronizer
