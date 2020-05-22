@@ -2,7 +2,7 @@
 lock '~> 3.12.1'
 # set comment by merge deploy file and config folder
 
-set :application, 'elitgon_web'
+set :application, 'cimo_api'
 set :user,        'deploy'
 set :repo_url, 'git@bitbucket.org:elitgon/cimo-api.git'
 
@@ -11,7 +11,7 @@ set :repo_url, 'git@bitbucket.org:elitgon/cimo-api.git'
 
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, '/home/deploy/elitgon_web'
+set :deploy_to, '/home/deploy/cimo_api'
 
 set :conditionally_migrate, true
 set :migration_role, :app
