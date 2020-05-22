@@ -23,6 +23,7 @@ module CimoApi
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
+    config.active_job.queue_adapter = :sidekiq
 
     # Load lib directory
     Dir.glob(Rails.root.join('lib/**/*.rb')) do |path|
