@@ -3,7 +3,7 @@
 # Defines a single server with a list of roles and multiple properties.
 # You can define all roles on a single server, or split them:
 
-server 'api.gosportsadmin.com', user: 'deploy', roles: %w{app db web}
+server '161.35.120.237', user: 'deploy', roles: %w{app db web}
 # server 'example.com', user: 'deploy', roles: %w{app web}, other_property: :other_value
 # server 'db.example.com', user: 'deploy', roles: %w{db}
 set :rails_env, 'production'
@@ -12,15 +12,15 @@ set :rvm_type, :system                     # Defaults to: :auto
 set :rvm_ruby_version, '2.6.5'             # Defaults to: 'default'
 set :rvm_custom_path, '/home/deploy/.rvm'  # only needed if not detected
 
-set :branch, :master
+set :branch, :development
 set :stage,  :production
 
 namespace :deploy do
   desc 'Make sure local git is in sync with remote.'
   task :check_revision do
     on roles(:app) do
-      unless `git rev-parse HEAD` == `git rev-parse origin/master`
-        puts 'WARNING: HEAD is not the same as origin/master'
+      unless `git rev-parse HEAD` == `git rev-parse origin/development`
+        puts 'WARNING: HEAD is not the same as origin/development'
         puts 'Run `git push` to sync changes.'
         exit
       end
