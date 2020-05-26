@@ -71,17 +71,19 @@ GEM
       sshkit (>= 1.9.0)
     capistrano-bundler (1.6.0)
       capistrano (~> 3.1)
-    capistrano-passenger (0.2.0)
-      capistrano (~> 3.0)
     capistrano-rails (1.5.0)
       capistrano (~> 3.1)
       capistrano-bundler (~> 1.1)
+    capistrano-rake (0.2.0)
+      capistrano (>= 3.0)
     capistrano-rvm (0.1.2)
       capistrano (~> 3.0)
       sshkit (~> 1.2)
     capistrano-sidekiq (1.0.2)
       capistrano (>= 3.9.0)
       sidekiq (>= 3.4)
+    capistrano-yarn (2.0.2)
+      capistrano (~> 3.0)
     capistrano3-puma (4.0.0)
       capistrano (~> 3.7)
       capistrano-bundler
@@ -249,10 +251,11 @@ DEPENDENCIES
   byebug
   capistrano
   capistrano-bundler
-  capistrano-passenger
   capistrano-rails
+  capistrano-rake
   capistrano-rvm
   capistrano-sidekiq
+  capistrano-yarn
   capistrano3-puma
   httparty (~> 0.18.0)
   listen (>= 3.0.5, < 3.2)
