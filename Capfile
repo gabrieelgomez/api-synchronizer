@@ -18,8 +18,8 @@ install_plugin Capistrano::SCM::Git
 require 'capistrano/rails'
 require 'capistrano/rvm'
 require 'capistrano/bundler'
-require 'capistrano/puma'
 require 'capistrano/sidekiq'
+require 'capistrano/puma'
 
 install_plugin Capistrano::Puma  # Default puma tasks
 # install_plugin Capistrano::Puma::Nginx  # if you want to upload a nginx site template
