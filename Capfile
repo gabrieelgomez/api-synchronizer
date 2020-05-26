@@ -46,8 +46,6 @@ require 'capistrano/rails'
 require 'capistrano/yarn'
 require 'capistrano/rvm'
 require 'capistrano/puma'
-require 'capistrano/rake'
-require 'capistrano/sidekiq'
 
 require 'capistrano/scm/git'
 install_plugin Capistrano::SCM::Git

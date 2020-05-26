@@ -26,7 +26,7 @@ group :development do
   gem 'capistrano-rails',   require: false
   gem 'capistrano-rake'
   gem 'capistrano-rvm', require: false
-  gem 'capistrano-sidekiq'
+  # gem 'capistrano-sidekiq'
   gem 'capistrano-yarn'
   gem 'capistrano3-puma', require: false
   gem 'listen', '>= 3.0.5', '< 3.2'
