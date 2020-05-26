@@ -16,6 +16,8 @@ gem 'sidekiq', '~>6.0.0'
 gem 'sidekiq-scheduler'
 gem 'woocommerce_api', '~> 1.4'
 
+gem 'sassc-rails', '~> 2.0.0'
+
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
 end
