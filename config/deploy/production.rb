@@ -3,25 +3,25 @@
 # Defines a single server with a list of roles and multiple properties.
 # You can define all roles on a single server, or split them:
 
-server '161.35.120.237', user: 'deploy', roles: %w{app db web}
-# server 'example.com', user: 'deploy', roles: %w{app web}, other_property: :other_value
-# server 'db.example.com', user: 'deploy', roles: %w{db}
-set :rails_env, 'production'
+server '161.35.120.237', user: "deploy", roles: %w{app db web}
+# server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
+# server "db.example.com", user: "deploy", roles: %w{db}
+set :rails_env, "production"
 
 set :rvm_type, :system                     # Defaults to: :auto
 set :rvm_ruby_version, '2.6.5'             # Defaults to: 'default'
-set :rvm_custom_path, '/home/deploy/.rvm'  # only needed if not detected
+set :rvm_custom_path, '/home/deploy/.rvm'    # only needed if not detected
 
 set :branch, :development
 set :stage,  :production
 
 namespace :deploy do
-  desc 'Make sure local git is in sync with remote.'
+  desc "Make sure local git is in sync with remote."
   task :check_revision do
     on roles(:app) do
       unless `git rev-parse HEAD` == `git rev-parse github/development`
-        puts 'WARNING: HEAD is not the same as github/development'
-        puts 'Run `git push` to sync changes.'
+        puts "WARNING: HEAD is not the same as github/development"
+        puts "Run `git push` to sync changes."
         exit
       end
     end
@@ -44,8 +44,8 @@ namespace :deploy do
 
   before :starting,     :check_revision
   after  :finishing,    :compile_assets
-  # after  :finishing,    :cleanup
-  # after  :finishing,    :restart
+  #after  :finishing,    :cleanup
+  #after  :finishing,    :restart
 end
 
 # role-based syntax
@@ -88,13 +88,13 @@ end
 #
 # The server-based syntax can be used to override options:
 # ------------------------------------
-# server 'example.com',
-#   user: 'user_name',
+# server "example.com",
+#   user: "user_name",
 #   roles: %w{web app},
 #   ssh_options: {
-#     user: 'user_name', # overrides user setting above
+#     user: "user_name", # overrides user setting above
 #     keys: %w(/home/user_name/.ssh/id_rsa),
 #     forward_agent: false,
 #     auth_methods: %w(publickey password)
-#     # password: 'please use keys'
+#     # password: "please use keys"
 #   }

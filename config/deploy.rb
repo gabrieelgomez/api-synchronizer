@@ -1,5 +1,5 @@
 # config valid for current version and patch releases of Capistrano
-lock '~> 3.14.0'
+lock "~> 3.12.1"
 # set comment by merge deploy file and config folder
 
 set :application, 'cimo_api'
@@ -11,7 +11,7 @@ set :repo_url, 'git@github.com:gabrieelgomez/api-synchronizer.git'
 
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, '/home/deploy/cimo_api'
+set :deploy_to, "/home/deploy/elitgon_web"
 
 set :conditionally_migrate, true
 set :migration_role, :app
@@ -33,14 +33,10 @@ set :pty,             true
 set :use_sudo,        false
 
 set :stages, %w(stage production)
-set :default_stage, 'production'
-
-# set sidekiq_config: 'config/sidekiq.yml'
-# SSHKit.config.command_map[:sidekiq]    = 'bundle exec sidekiq'
-# SSHKit.config.command_map[:sidekiqctl] = 'bundle exec sidekiqctl'
+set :default_stage, "production"
 
 append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system', 'public/uploads'
-append :linked_files, 'config/database.yml', 'config/secrets.yml', 'config/redis.yml'
+append :linked_files, 'config/database.yml', 'config/secrets.yml'
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
@@ -49,7 +45,7 @@ append :linked_files, 'config/database.yml', 'config/secrets.yml', 'config/redis
 # set :local_user, -> { `git config user.name`.chomp }
 
 ## Defaults:
-# set :scm,           :git
+#set :scm,           :git
 set :format,        :pretty
 set :log_level,     :debug
 set :keep_releases, 5
