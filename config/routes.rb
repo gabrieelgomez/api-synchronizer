@@ -6,5 +6,7 @@ Rails.application.routes.draw do
   require 'sidekiq-scheduler/web'
 
   post 'api/webhook/orders/created', to: 'webhook#created_order'
+  post 'api/webhook/health_test', to: 'webhook#health_test'
+
   mount Sidekiq::Web => '/sidekiq'
 end

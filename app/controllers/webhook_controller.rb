@@ -6,4 +6,11 @@ class WebhookController < ApplicationController
 
     # @api_cimo.post('bills', products_to_bill)
   end
+
+
+  def health_test
+    @products = Product.all
+    render json: {status: 'healthy'}, status: :ok
+  end
+
 end
