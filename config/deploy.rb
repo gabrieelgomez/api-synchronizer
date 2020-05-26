@@ -4,7 +4,7 @@ lock '~> 3.14.0'
 
 set :application, 'cimo_api'
 set :user,        'deploy'
-set :repo_url, 'git@bitbucket.org:elitgon/cimo-api.git'
+set :repo_url, 'git@github.com:gabrieelgomez/api-synchronizer.git'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
