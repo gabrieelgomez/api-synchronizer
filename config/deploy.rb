@@ -11,7 +11,7 @@ set :repo_url, 'git@github.com:gabrieelgomez/api-synchronizer.git'
 
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, "/home/deploy/elitgon_web"
+set :deploy_to, "/home/deploy/cimo_api"
 
 set :conditionally_migrate, true
 set :migration_role, :app
