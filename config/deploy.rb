@@ -1,5 +1,5 @@
 # config valid for current version and patch releases of Capistrano
-lock "~> 3.12.1"
+lock "~> 3.14.0"
 # set comment by merge deploy file and config folder
 
 set :application, 'cimo_api'
