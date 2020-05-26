@@ -35,6 +35,10 @@ set :use_sudo,        false
 set :stages, %w(stage production)
 set :default_stage, 'production'
 
+# set sidekiq_config: 'config/sidekiq.yml'
+# SSHKit.config.command_map[:sidekiq]    = 'bundle exec sidekiq'
+# SSHKit.config.command_map[:sidekiqctl] = 'bundle exec sidekiqctl'
+
 append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system', 'public/uploads'
 append :linked_files, 'config/database.yml', 'config/secrets.yml', 'config/redis.yml'
 
